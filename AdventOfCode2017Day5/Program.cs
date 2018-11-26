@@ -1131,8 +1131,8 @@ How many steps does it now take to reach the exit?
 -316
 -732";
 
-            Part1(largeBuffer);
-            //Part2(largeBuffer);
+            //Part1(largeBuffer);
+            Part2(largeBuffer);
 
 
         }
@@ -1167,6 +1167,48 @@ How many steps does it now take to reach the exit?
                 int x = 1;
             }
             
+
+        }
+
+        static void Part2(string buffer)
+        {
+
+            string[] lines = buffer.Split(
+                    new[] { Environment.NewLine },
+                    StringSplitOptions.None);
+
+            int tries = 0;
+
+            try
+            {
+
+                int counter = 0;
+                while (true)
+                {
+
+                    int val = Convert.ToInt32(lines[counter]);
+                    int nextCounter = counter + val;
+
+                    if(val >= 3)
+                    {
+                        lines[counter] = (val - 1).ToString();
+
+                    }
+                    else
+                    {
+                        lines[counter] = (val + 1).ToString();
+
+                    }
+                    counter = nextCounter;
+                    tries++;
+                }
+            }
+            catch (Exception e)
+            {
+
+                int x = 1;
+            }
+
 
         }
     }
